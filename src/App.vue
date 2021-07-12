@@ -12,6 +12,7 @@ export default {
   components: {
     IonApp,
     IonRouterOutlet
+    
   }
 };
 </script>
