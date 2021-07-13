@@ -6,21 +6,27 @@
             :router-link="`/memories/${ memory.id }`"
             :key="index"
             >
-                <ion-img></ion-img>
+            <ion-thumbnail slot="start">
+                <ion-img :src="memory.img" :alt="memory.title"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
                 {{ memory.title }}
+            </ion-label>
             </ion-item>
         </ion-list>
     </base-layout>
 </template>
 
 <script>
-import { IonList, IonItem, IonImg } from '@ionic/vue'
+import { IonList, IonItem, IonImg, IonThumbnail, IonLabel } from '@ionic/vue'
 
 export default {
     components:{
         IonList,
         IonItem,
-        IonImg
+        IonImg,
+        IonThumbnail,
+        IonLabel
     },
     data() {
         return {
