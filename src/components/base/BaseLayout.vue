@@ -5,7 +5,10 @@
                 <ion-buttons slot="start">
                     <ion-back-button :default-href="defaultBackPage"></ion-back-button>
                 </ion-buttons>
-                    <ion-title>{{ pageTitle }}</ion-title>
+                <ion-title>{{ pageTitle }}</ion-title>
+                <ion-buttons slot="end">
+                    <slot name="actions-end"></slot>
+                </ion-buttons>
             </ion-toolbar>
         </ion-header>
         <ion-content>
