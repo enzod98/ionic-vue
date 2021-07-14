@@ -41,6 +41,23 @@ const store = createStore({
             }
         }
     },
+    mutations:{
+        addMemory(state, memoryData){
+            let newMemory = {
+                id: new Date().toISOString(),
+                title: memoryData.title,
+                img: memoryData.imgUrl,
+                description: memoryData.description
+            }
+
+            state.memories.unshift(newMemory);
+        }
+    },
+    actions: {
+        addMemory(context, payload){
+            context.commit('addMemory', payload);
+        }
+    }
 })
 
 export default store;
