@@ -12,7 +12,8 @@
   "dependencies": {
     "@capacitor/android": "^3.1.1",
     "@capacitor/app": "1.0.2",
-    "@capacitor/core": "3.1.1",
+    "@capacitor/camera": "^1.0.3",
+    "@capacitor/core": "^3.1.1",
     "@capacitor/haptics": "1.0.2",
     "@capacitor/keyboard": "1.0.2",
     "@capacitor/status-bar": "1.0.2",
@@ -24,7 +25,7 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@capacitor/cli": "3.1.1",
+    "@capacitor/cli": "^3.1.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-e2e-cypress": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",

@@ -1,6 +1,6 @@
 {
-  "appId": "com.enzodure.vueionic",
-  "appName": "VueMemories",
-  "webDir": "public",
+  "appId": "com.enzodure.vue.ionic",
+  "appName": "Vue Memories Final Test",
+  "webDir": "dist",
   "bundledWebRuntime": false
 }

@@ -6,8 +6,13 @@
         <ion-input type="text" required v-model="title" />
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Img URL</ion-label>
-        <ion-input type="url" required v-model="imgUrl" />
+        <ion-thumbnail slot="start">
+          <img :src="previewImgUrl" />
+        </ion-thumbnail>
+        <ion-button type="button" fill="clear" @click="takePhoto">
+          <ion-icon slot="start" :icon="camera" ></ion-icon>
+          Take Photo
+        </ion-button>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Descripción</ion-label>
@@ -26,7 +31,13 @@ import {
   IonInput,
   IonTextarea,
   IonButton,
+  IonThumbnail,
+  IonIcon
 } from "@ionic/vue";
+
+import { camera } from 'ionicons/icons'
+import { Camera, CameraResultType } from '@capacitor/camera';
+
 
 export default {
   emits: ['save-memory'],
@@ -37,12 +48,16 @@ export default {
     IonInput,
     IonTextarea,
     IonButton,
+    IonThumbnail,
+    IonIcon
   },
   data() {
       return {
           title: '',
           imgUrl: '',
-          description: ''
+          description: '',
+          camera,
+          previewImgUrl: null
       }
   },
   methods: {
@@ -54,6 +69,14 @@ export default {
           }
 
           this.$emit('save-memory', memoryData);
+      },
+      async takePhoto(){
+        let photo = await Camera.getPhoto({
+          resultType: CameraResultType.Uri, //Quiere decir que la foto se guardará en un almacenamiento temporal del dispositivo y obtenemos una URI que apunta a esa dirección
+          quality: 100 //Calidad de la imagen en porcentajes
+        });
+
+        this.previewImgUrl = photo.webPath;
       }
   }
 };
